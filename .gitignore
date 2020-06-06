@@ -3,3 +3,5 @@ dist/
 .python-version
 
 logs
+
+*.mp4

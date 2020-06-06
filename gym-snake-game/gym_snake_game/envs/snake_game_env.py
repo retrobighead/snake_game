@@ -70,7 +70,7 @@ class SnakeGameEnv(gym.Env):
         self.grid_num_h = 10
 
         self.padding = 100
-        self.grid_width = 216
+        self.grid_width = 88
 
         self.label_bg = 0
         self.label_snake_head = 1

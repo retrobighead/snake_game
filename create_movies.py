@@ -39,6 +39,11 @@ assert os.path.exists(load_dir_path), "load_dir_path does not exist"
 ##                                                   Rendering
 ##                                                 -----------------------
 
+# setup environment
+env = gym.make('SnakeGame-v0')
+env = DummyVecEnv([lambda: env])
+
+# model list
 model_files = glob.glob(os.path.join(load_dir_path, file_prefix + "*.zip"))
 model_files = sorted(model_files, key=get_model_iteration)
 
@@ -64,6 +69,7 @@ for mf in model_files:
     ims = []
     observation = env.reset()
     
+    done_count = 0
     while True:
         img = env.render()
         im = plt.imshow(img)
@@ -72,5 +78,5 @@ for mf in model_files:
         action, _ = model.predict(observation)
         observation, reward, done, info = env.step(action)
 
-
-
+        if done:
+            done_count += 1

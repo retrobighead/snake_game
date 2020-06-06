@@ -27,13 +27,13 @@ MODE = "LOAD" # LOAD or LEARNING or LOAD_AND_LEARNING
 ITERATION_NUMS = 100000000
 ITERATIONS_PER_SAVE = 1000000
 
-SAVE_DIR = "ppo2_snake_game_5x5_2"
+SAVE_DIR = "models/dqn_snake_game_10x10"
 SAVE_FILE_NAME = "iter_"
 SAVE_FILE_PATH = os.path.join(SAVE_DIR, SAVE_FILE_NAME)
 
-REPLAY_ITERATION_NUMS = 5000
+REPLAY_ITERATION_NUMS = 1000
 REPLAY_INTERVAL_MS = 100
-REPLAY_MP4_NAME = 'animation5x5_itermax.mp4'
+REPLAY_MP4_NAME = 'animation10x10_itermax.mp4'
 
 LOG_DIR = './logs10x10_dqn/'
 
@@ -136,5 +136,5 @@ for i in range(REPLAY_ITERATION_NUMS):
 
 # for mp4
 ani = animation.ArtistAnimation(fig, ims, interval=REPLAY_INTERVAL_MS, repeat=False, blit=True)
-ani.save(REPLAY_MP4_NAME, writer="ffmpeg")
+ani.save(REPLAY_MP4_NAME, writer="ffmpeg", dpi=300)
 plt.show()
